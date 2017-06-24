@@ -11,7 +11,7 @@ import { SessionCardComponent } from "./card/session-card.component"
 import { SessionListComponent } from "./list/session-list.component"
 import { SessionComponent } from "./session.component"
 import { SessionMenuComponent } from "./menu/menu.component"
-
+import { SessionTypeSelector } from "./sessionTypeSelector/sessionType-selector.component"
 import { TracksModule } from '../tracks/track.module'
 
 @NgModule({
@@ -21,7 +21,8 @@ import { TracksModule } from '../tracks/track.module'
     SessionCardComponent,
     SessionListComponent,
     SessionComponent,
-    SessionMenuComponent
+    SessionMenuComponent,
+    SessionTypeSelector
   ],
   exports: [
     CreateSessionComponent,

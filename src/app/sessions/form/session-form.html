@@ -17,6 +17,22 @@
 
       <div class="field is-horizontal">
         <div class="field-label is-normal">
+          <label class="label">Type</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <session-type-selector
+                [championshipId]="championshipId"
+                (onSelect)="selectType($event)"
+              ></session-type-selector>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
           <label class="label">Name</label>
         </div>
         <div class="field-body">

@@ -12,6 +12,7 @@ export class TrackSelector implements OnInit {
   private tracks : Array<Track>
   private loading: boolean
   private selectedTrack
+  
   @Output() onSelect: EventEmitter<Track> = new EventEmitter()
 
   constructor(private trackService: TrackService) {}

@@ -2,4 +2,6 @@
   <h1>Setup a new Session</h1>
 </div>
 
-<session-form (onSend)="createSession($event)"></session-form>
+<session-form
+  (onSend)="createSession($event)"
+  [championshipId]="championshipId"></session-form>

@@ -1,4 +1,5 @@
 import { Track } from "../tracks/track.model"
+import { SessionType } from "./sessionType.model"
 
 export class Session {
 
@@ -7,9 +8,8 @@ export class Session {
   date: string
   time: string
   track: Track
+  type: SessionType
 
   constructor() {}
-
-
 
 }
