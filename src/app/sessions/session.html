@@ -1,22 +1,19 @@
-<div class="columns">
+<div class="columns relative">
 
   <div class="column is-2" >
     <session-menu [session]="session"></session-menu>
   </div>
   <div class="column is-10">
-    <section style="position: relative" class="hero is-medium is-primary is-bold">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Primary bold title
-          </h1>
-          <h2 class="subtitle">
-            Primary bold subtitle
-          </h2>
-        </div>
-      </div>
-    </section>
+
+    <file-upload
+      [uploadUrl]="uploadUrl"
+      (onStart)="uploadStarted()"
+      (onFinish)="uploadFinshed($event)"
+      (onError)="uploadError($event)"
+      ></file-upload>
 
   </div>
+
+  <overlay-loader *ngIf="importingResults"></overlay-loader>
 
 </div>

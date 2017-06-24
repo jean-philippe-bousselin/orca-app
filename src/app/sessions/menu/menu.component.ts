@@ -10,7 +10,7 @@ export class SessionMenuComponent implements OnInit {
 
   @Input() session: Session
 
-  constructor(private championshipService: SessionService) {}
+  constructor(private sessionService: SessionService) {}
 
   ngOnInit() {
 
