@@ -1,0 +1,82 @@
+<div class="columns">
+  <div class="column is-4">
+    <form #sessionForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Track</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <track-selector (onSelect)="selectTrack($event)"></track-selector>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Name</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input type="text"
+                [(ngModel)]="session.name" #name="ngModel" ngControl="name"
+                name="name" class="input" required value=""/>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Date</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input type="date"
+                [(ngModel)]="session.date" #date="ngModel" ngControl="date"
+                name="date" class="input" required value=""/>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Time</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input type="time"
+                [(ngModel)]="session.time" #time="ngModel" ngControl="time"
+                name="time" class="input" required value=""/>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+  <div class="column is-2">
+    <session-card [session]="session"></session-card>
+  </div>
+</div>

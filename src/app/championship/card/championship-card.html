@@ -1,0 +1,15 @@
+
+<div class="card championship-card" *ngIf="championship">
+  <div class="card-image">
+    <figure class="image">
+      <img src="{{championship.thumbnailUrl || 'http://www.donedems.com/wp-content/uploads/2017/01/Online-Car-Racing.jpg'}}" alt="Image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content is-small">
+      <h1>{{championship.name}}</h1>
+      <p>{{championship.description}}</p>
+      <a *ngIf="!hideButtons" class="button is-outlined" [routerLink]="['/championships/' + championship.id]">Open</a>
+    </div>
+  </div>
+</div>

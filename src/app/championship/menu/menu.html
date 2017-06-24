@@ -1,0 +1,41 @@
+<aside class="menu">
+
+  <championship-card [championship]="championship"></championship-card>
+
+  <p class="menu-label">
+    Leaderboard
+  </p>
+  <ul class="menu-list">
+    <li><a routerLink="/championships/{{championship.id}}/leaderboard/overall"
+           routerLinkActive="is-active">Overall</a></li>
+    <li><a routerLink="/championships/{{championship.id}}/leaderboard/pro"
+           routerLinkActive="is-active"
+           [routerLinkActiveOptions]="{exact:true}">Pro</a></li>
+    <li><a routerLink="/championships/{{championship.id}}/leaderboard/am"
+           routerLinkActive="is-active"
+           [routerLinkActiveOptions]="{exact:true}">Am</a></li>
+  </ul>
+  <p class="menu-label">
+    Sessions
+  </p>
+  <ul class="menu-list">
+    <li>
+      <a routerLink="/championships/{{championship.id}}/sessions"
+         routerLinkActive="is-active"
+         [routerLinkActiveOptions]="{exact:true}">Overview</a></li>
+    <li>
+      <a routerLink="/championships/{{championship.id}}/sessions/add"
+         routerLinkActive="is-active"
+         [routerLinkActiveOptions]="{exact:true}">Add</a>
+    </li>
+  </ul>
+  <p class="menu-label">
+    Administration
+  </p>
+  <ul class="menu-list">
+    <li><a>Edit</a></li>
+    <li><a>Settings</a></li>
+    <li><a>Drivers</a></li>
+    <li><a>Admins</a></li>
+  </ul>
+</aside>

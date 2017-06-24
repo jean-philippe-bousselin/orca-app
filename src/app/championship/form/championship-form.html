@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="content">
+    <h1>Setup a new Championship</h1>
+  </div>
+  <div class="columns">
+    <div class="column is-8">
+      <form #championshipForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+          <label class="label">Name</label>
+          <p class="control">
+            <input
+              [(ngModel)]="championship.name"
+              #name="ngModel"
+              ngControl="name"
+              name="name"
+              class="input"
+              required
+              value=""/>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">Thumbnail link</label>
+          <p class="control has-icons-left has-icons-right">
+            <input
+              class="input"
+              [(ngModel)]="championship.thumbnailUrl"
+              #thumbnailUrl="ngModel"
+              name="thumbnailUrl"
+              type="text"
+              value="">
+            <span class="icon is-small is-left">
+              <i class="fa fa-link"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">Description</label>
+          <p class="control">
+            <textarea
+              [(ngModel)]="championship.description"
+              #description="ngModel"
+              name="description"
+              class="textarea"
+            ></textarea>
+          </p>
+        </div>
+
+        <button type="submit" class="button is-primary">Create</button>
+
+      </form>
+    </div>
+    <div class="column is-4">
+      <championship-card [championship]="championship"></championship-card>
+    </div>
+  </div>
