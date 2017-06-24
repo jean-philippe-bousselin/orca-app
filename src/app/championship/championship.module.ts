@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
+import { SharedModule } from '../shared/shared.module'
 import { ChampionshipComponent } from './championship.component'
 import { ChampionshipCardComponent } from './card/championship-card.component'
 import { ChampionshipListComponent } from './list/championship-list.component'
@@ -31,7 +32,8 @@ import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.comp
   imports: [
     FormsModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   providers: [
     ChampionshipService

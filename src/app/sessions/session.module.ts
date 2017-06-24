@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
+import { SharedModule } from '../shared/shared.module'
 import { SessionService } from "./session.service"
 import { SessionFormComponent } from "./form/session-form.component"
 import { CreateSessionComponent } from "./create/create-session.component"
@@ -30,6 +31,7 @@ import { TracksModule } from '../tracks/track.module'
   imports: [
     FormsModule,
     BrowserModule,
+    SharedModule,
     RouterModule,
     TracksModule
   ],
