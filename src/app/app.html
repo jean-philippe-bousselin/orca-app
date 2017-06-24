@@ -1,6 +1,10 @@
 <nav class="nav has-shadow">
-  <div class="container">
     <div class="nav-left">
+      <a class="nav-item" routerLink="/">
+        <h1 class="title is-3">ORCA</h1>
+      </a>
+    </div>
+    <div class="nav-center">
       <a class="nav-item is-tab is-hidden-mobile"
          routerLink="/"
          routerLinkActive="is-active">My Championships</a>
@@ -9,8 +13,7 @@
          routerLinkActive="is-active"
          [routerLinkActiveOptions]="{exact:true}">New Championship</a>
      <a class="nav-item is-tab is-hidden-mobile"
-        routerLink="/tracks"
-        routerLinkActive="is-active">Tracks</a>
+        routerLink="/tracks" routerLinkActive="is-active">Tracks</a>
     </div>
     <div class="nav-right nav-menu">
       <a class="nav-item is-tab">
@@ -21,8 +24,8 @@
       </a>
       <a class="nav-item is-tab">Log out</a>
     </div>
-  </div>
 </nav>
+
 
 <div class="app-content container is-fluid">
   <main>
