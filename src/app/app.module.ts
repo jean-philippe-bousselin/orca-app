@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ChampionshipModule } from './championship/championship.module'
 import { TracksModule } from './tracks/track.module'
@@ -63,7 +62,6 @@ type StoreType = {
    */
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     ChampionshipModule,

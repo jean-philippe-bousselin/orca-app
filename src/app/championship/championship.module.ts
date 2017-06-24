@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { ChampionshipComponent } from './championship.component'
 import { ChampionshipCardComponent } from './card/championship-card.component'
@@ -32,7 +31,6 @@ import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.comp
   imports: [
     FormsModule,
     BrowserModule,
-    BrowserAnimationsModule,
     RouterModule
   ],
   providers: [
