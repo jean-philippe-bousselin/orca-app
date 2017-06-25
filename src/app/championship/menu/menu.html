@@ -33,9 +33,10 @@
     Administration
   </p>
   <ul class="menu-list">
-    <li><a>Edit</a></li>
-    <li><a>Settings</a></li>
-    <li><a>Drivers</a></li>
-    <li><a>Admins</a></li>
+    <li><a disabled>Edit</a></li>
+    <li><a routerLink="/championships/{{championship.id}}/settings"
+           routerLinkActive="is-active">Settings</a></li>
+    <li><a disabled>Drivers</a></li>
+    <li><a disabled>Admins</a></li>
   </ul>
 </aside>

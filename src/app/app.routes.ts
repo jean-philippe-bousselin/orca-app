@@ -7,6 +7,7 @@ import { HomeComponent } from './home';
 import { CreateChampionshipComponent } from './championship/create/create-championship.component'
 import { ChampionshipComponent } from './championship/championship.component'
 import { ChampionshipLeaderboardComponent } from './championship/leaderboard/leaderboard.component'
+import { ChampionshipSettingsComponent } from './championship/settings/settings.component'
 
 import { TrackComponent } from './tracks/track.component'
 
@@ -22,6 +23,7 @@ export const ROUTES: Routes = [
   { path: 'championships/:championshipId', component: ChampionshipComponent,
     children: [
       { path: '', redirectTo: 'leaderboard/overall', pathMatch: 'full' },
+      { path: 'settings', component: ChampionshipSettingsComponent },
       { path: 'leaderboard/:category', component: ChampionshipLeaderboardComponent },
       { path: 'sessions/add', component: CreateSessionComponent },
       { path: 'sessions/:sessionId', component: SessionComponent },

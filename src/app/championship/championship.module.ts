@@ -12,6 +12,7 @@ import { CreateChampionshipComponent } from './create/create-championship.compon
 import { ChampionshipMenuComponent } from './menu/menu.component.ts'
 import { ChampionshipService } from './championship.service'
 import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.component'
+import { ChampionshipSettingsComponent } from './settings/settings.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.comp
     CreateChampionshipComponent,
     ChampionshipFormComponent,
     ChampionshipMenuComponent,
-    ChampionshipLeaderboardComponent
+    ChampionshipLeaderboardComponent,
+    ChampionshipSettingsComponent
   ],
   exports: [
     ChampionshipCardComponent,

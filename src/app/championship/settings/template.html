@@ -1,0 +1,96 @@
+<h1 class="title is-1">Settings</h1>
+
+<div class="box" *ngFor="let type of sessionTypes ; let typesIndex = index">
+
+  <div class="field is-horizontal" >
+    <div class="field-label is-normal">
+      <label class="label">Name</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            type="text"
+            name="name"
+            class="input"
+            required
+            value="{{type.name}}"/>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns" *ngFor="let point of type.points; let pointsIndex = index">
+    <div class="column is-11">
+      <div class="field is-horizontal" >
+        <div class="field-label is-normal">
+          <label class="label">P{{pointsIndex + 1}}</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                type="number"
+                name="name"
+                class="input"
+                required
+                value=""/>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-1">
+      <button class="delete" (click)="deletePointRow(typesIndex, pointsIndex)"></button>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button (click)="addPointRow(typesIndex)" class="button is-primary">Add row</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Incident limit</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            type="number"
+            name="name"
+            class="input"
+            required
+            value=""/>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Penalty</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            type="number"
+            name="name"
+            class="input"
+            required
+            value=""/>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
