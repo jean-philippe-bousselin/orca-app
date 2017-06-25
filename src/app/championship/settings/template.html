@@ -1,49 +1,55 @@
 <h2 class="title is-2">Settings</h2>
 
-<div class="box settings-categories">
+<div class="relative">
 
-  <h3 class="title is-3">Sub classes</h3>
+  <div class="box settings-categories">
 
-  <span *ngFor="let subclass of subclasses" class="tag is-info is-medium">
-    {{subclass}}
-    <button class="delete is-small"></button>
-  </span>
+    <h3 class="title is-3">Sub classes</h3>
 
-  <div class="field has-addons">
-    <p class="control">
-      <input class="input" [(ngModel)]="currentSubclass" type="text" >
-    </p>
-    <p class="control">
-      <a class="button is-info" (click)="addSubclass()">
-        <span class="icon">
-          <i class="fa fa-plus"></i>
-        </span>
-      </a>
-    </p>
-  </div>
-
-</div>
-
-
-<div class="box settings-session-types">
-
-  <h3 class="title is-3">Session types</h3>
-
-  <div *ngFor="let type of sessionTypes ; let i = index">
-    <session-type-form [(sessionType)]="sessionTypes[i]"></session-type-form>
-  </div>
-
-  <button class="button is-primary" type="button" (click)="addType()">
-    <span class="icon">
-      <i class="fa fa-plus"></i>
+    <span *ngFor="let subclass of subclasses" class="tag is-info is-medium">
+      {{subclass}}
+      <button class="delete is-small"></button>
     </span>
+
+    <div class="field has-addons">
+      <p class="control">
+        <input class="input" [(ngModel)]="currentSubclass" type="text" >
+      </p>
+      <p class="control">
+        <a class="button is-info" (click)="addSubclass()">
+          <span class="icon">
+            <i class="fa fa-plus"></i>
+          </span>
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="box settings-session-types">
+
+    <h3 class="title is-3">Session types</h3>
+
+    <div *ngFor="let type of sessionTypes ; let i = index">
+      <session-type-form [(sessionType)]="sessionTypes[i]"></session-type-form>
+    </div>
+
+    <button class="button is-primary" type="button" (click)="addType()">
+      <span class="icon">
+        <i class="fa fa-plus"></i>
+      </span>
+    </button>
+
+  </div>
+
+  <button class="button is-primary" type="button" (click)="saveConfig()">
+    <span class="icon">
+      <i class="fa fa-floppy-o"></i>
+    </span>
+    <span>Save configuration</span>
   </button>
 
-</div>
+  <overlay-loader *ngIf="savingConfiguration"></overlay-loader>
 
-<button class="button is-primary" type="button" (click)="saveConfig()">
-  <span class="icon">
-    <i class="fa fa-floppy-o"></i>
-  </span>
-  <span>Save configuration</span>
-</button>
+</div>

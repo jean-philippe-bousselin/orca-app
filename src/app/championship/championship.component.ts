@@ -24,10 +24,15 @@ export class ChampionshipComponent implements OnInit, OnDestroy {
       this.championshipId = +params['championshipId']
 
       this.championshipService.find(this.championshipId).subscribe(
-        championship => this.championship = championship,
+        championship => this.init(championship),
         error => console.log(error)
       )
    })
+  }
+
+  init(championship: Championship) {
+    this.championshipService.currentChampionship = championship
+    this.championship = championship
   }
 
   ngOnDestroy() {

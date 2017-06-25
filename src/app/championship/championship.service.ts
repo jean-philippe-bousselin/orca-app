@@ -12,6 +12,8 @@ export class ChampionshipService {
 
   private apiUrl = 'http://localhost:9000/championships'
 
+  currentChampionship: Championship
+
   constructor (private http: Http) {}
 
   find(id: number): Observable<Championship> {
@@ -22,6 +24,9 @@ export class ChampionshipService {
   }
   create(championship: Championship): Observable<Championship> {
     return this.http.post(this.apiUrl, championship).map(this.extractData)
+  }
+  configure(id: number, configuration: Object): Observable<Championship> {
+    return this.http.post(this.apiUrl + "/" + id + "/configure", configuration).map(this.extractData)
   }
 
   private extractData(res: Response) {

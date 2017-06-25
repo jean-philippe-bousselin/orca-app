@@ -6,6 +6,5 @@ export class SessionType {
   incidentsLimit: number
   penaltyPoints: number
   constructor() {}
-
-
+  
 }
