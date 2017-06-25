@@ -11,12 +11,16 @@ export class ChampionshipListComponent implements OnInit {
 
   list: Array<Championship>
 
+  private isLoading: boolean = false
+
   constructor(private championshipService: ChampionshipService) {}
 
   ngOnInit() {
+    this.isLoading = true
     this.championshipService.getAll().subscribe(
       championships => this.list = championships,
-      error => console.log(error)
+      error => console.log(error),
+      () => this.isLoading = false
     )
   }
 

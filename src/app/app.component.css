@@ -1,4 +1,6 @@
 div.app-content.container {
   margin-top: 20px;
   margin-bottom: 20px;
+  position: relative;
+  min-height: 400px;
 }
