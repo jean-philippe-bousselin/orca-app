@@ -12,6 +12,8 @@ import { SessionListComponent } from "./list/session-list.component"
 import { SessionComponent } from "./session.component"
 import { SessionMenuComponent } from "./menu/menu.component"
 import { SessionTypeSelector } from "./sessionTypeSelector/sessionType-selector.component"
+
+// @FIXME this is not cool
 import { TracksModule } from '../tracks/track.module'
 
 @NgModule({

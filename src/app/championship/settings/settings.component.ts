@@ -5,29 +5,52 @@ import { SessionType } from "../../sessions/sessionType.model"
 
 @Component({
   selector: 'championship-settings',
-  templateUrl: './template.html'
+  templateUrl: './template.html',
+  styleUrls: ['./style.scss']
 })
 export class ChampionshipSettingsComponent implements OnInit {
 
   private sessionTypes: SessionType[]
+  private subclasses: string[]
+  private currentSubclass: string
 
   constructor(
     private championshipService: ChampionshipService
   ) {}
 
   ngOnInit() {
-    let defaultType = new SessionType()
-    defaultType.name = "Default"
-    defaultType.points = [0,0,0,0,0,0,0,0,0,0]
-    this.sessionTypes = [defaultType]
+    this.sessionTypes = [this.createEmptyType()]
+    this.subclasses = []
+    this.currentSubclass = ""
   }
 
-  addPointRow(typesIndex: number) {
-    this.sessionTypes[typesIndex].points.push(0)
+  createEmptyType() : SessionType {
+    let type = new SessionType()
+    type.name = "Default " + (this.sessionTypes? this.sessionTypes.length + 1 : "")
+    type.points = [0,0,0,0,0,0,0,0,0,0]
+    type.incidentsLimit = 0
+    type.penaltyPoints = 0
+    return type
   }
 
-  deletePointRow(typesIndex: number, pointsIndex: number) {
-    this.sessionTypes[typesIndex].points.splice(pointsIndex, 1)
+  addType() {
+    this.sessionTypes.push(this.createEmptyType())
+  }
+
+  addSubclass(name) {
+    if(this.currentSubclass != "") {
+      this.subclasses.push(this.currentSubclass)
+      this.currentSubclass = ""
+    }
+
+  }
+
+  saveConfig() {
+    let configuration = {
+      sessionTypes: this.sessionTypes,
+      subclasses: this.subclasses
+    }
+    console.log(configuration)
   }
 
 }

@@ -1,0 +1,70 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <span class="tag is-info is-medium">{{sessionTypeValue.name}}</span>
+    </p>
+    <a class="card-header-icon" (click)="toggle()">
+      <span class="icon">
+        <i class="fa" [ngClass]="{'fa-angle-left': isHidden, 'fa-angle-down': !isHidden}"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content" [ngClass]="{'is-hidden': isHidden}">
+    <div class="content">
+
+      <div class="field">
+        <label class="label">Name</label>
+        <p class="control">
+          <input type="text" [(ngModel)]="sessionTypeValue.name" #name="ngModel" ngControl="name" name="name" class="input" required [value]="sessionTypeValue.name"/>
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Points</label>
+      </div>
+
+      <div *ngFor="let point of sessionTypeValue.points; let pointsIndex = index ; trackBy:trackByIndex;">
+        <div class="field has-addons">
+          <p class="control">
+            <span class="button is-static">
+              P{{pointsIndex + 1}}
+            </span>
+          </p>
+          <p class="control">
+            <input type="number" (focus)="$event.target.select()" (change)="addPoint(pointsIndex, $event)"
+            class="input" required [value]="sessionTypeValue.points[pointsIndex]"/>
+          </p>
+          <p *ngIf="pointsIndex !== 0" class="control">
+            <a class="button"
+               (click)="deletePointRow(pointsIndex)">
+              <span class="icon is-small">
+                <i class="fa fa-times"></i>
+              </span>
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <button (click)="addPointRow()" class="button is-primary">
+        <span class="icon">
+          <i class="fa fa-plus"></i>
+        </span>
+      </button>
+
+      <div class="field">
+        <label class="label">Incident limit</label>
+        <p class="control">
+          <input type="number" name="name" class="input" required value=""/>
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Penalty points</label>
+        <p class="control">
+          <input type="number" name="name" class="input" required value=""/>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

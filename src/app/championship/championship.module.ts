@@ -14,6 +14,8 @@ import { ChampionshipService } from './championship.service'
 import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.component'
 import { ChampionshipSettingsComponent } from './settings/settings.component'
 
+import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.component"
+
 @NgModule({
   declarations: [
     ChampionshipComponent,
@@ -23,7 +25,8 @@ import { ChampionshipSettingsComponent } from './settings/settings.component'
     ChampionshipFormComponent,
     ChampionshipMenuComponent,
     ChampionshipLeaderboardComponent,
-    ChampionshipSettingsComponent
+    ChampionshipSettingsComponent,
+    SessionTypeFormComponent
   ],
   exports: [
     ChampionshipCardComponent,
