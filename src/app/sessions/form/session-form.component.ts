@@ -11,17 +11,14 @@ import { SessionType } from "../sessionType.model"
 })
 export class SessionFormComponent implements OnInit {
 
-  private session: Session
-
   @Input() championshipId: number
+  @Input() session: Session
   @Output() onSend: EventEmitter<Session> = new EventEmitter()
   @ViewChild('sessionForm') sessionForm: NgForm
 
   constructor() {}
 
-  ngOnInit() {
-    this.session = new Session()
-  }
+  ngOnInit() {}
 
   onSubmit() {
     if(this.sessionForm.valid) {
@@ -34,7 +31,7 @@ export class SessionFormComponent implements OnInit {
   }
 
   selectType(type: SessionType) {
-    this.session.type = type
+    this.session.sessionType = type
   }
 
 }

@@ -8,7 +8,7 @@ export class Session {
   date: string
   time: string
   track: Track
-  type: SessionType
+  sessionType: SessionType
 
   constructor() {}
 

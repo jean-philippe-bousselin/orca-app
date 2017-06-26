@@ -13,6 +13,8 @@ export class CreateSessionComponent implements OnInit {
 
   private championshipId: number
   private sub: any
+  private loading: boolean = false
+  private session: Session
 
   constructor(
     private sessionService: SessionService,
@@ -21,16 +23,27 @@ export class CreateSessionComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.session = new Session()
     this.sub = this.route.parent.params.subscribe(params => {
       this.championshipId = +params['championshipId']
    })
   }
 
   createSession(session: Session) {
+    this.loading = true
     this.sessionService.create(this.championshipId, session).subscribe(
-      session => this.router.navigate(['/championships/' + this.championshipId]),
-      error => console.log('an error occured', error)
+      session => this.creationCallback(session),
+      error => this.onErrorCallback(error)
     )
+  }
+
+  onErrorCallback(error) {
+    console.log('an error occured', error)
+    this.loading = false
+  }
+
+  creationCallback(session: Session) {
+    this.router.navigate(['/championships/' + this.championshipId])
   }
 
   ngOnDestroy() {
