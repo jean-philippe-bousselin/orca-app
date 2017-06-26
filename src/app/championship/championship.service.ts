@@ -28,6 +28,9 @@ export class ChampionshipService {
   configure(id: number, configuration: Object): Observable<Championship> {
     return this.http.post(this.apiUrl + "/" + id + "/configure", configuration).map(this.extractData)
   }
+  getConfiguration(id: number): Observable<any> {
+    return this.http.get(this.apiUrl + "/" + id + "/configuration").map(this.extractData)
+  }
 
   private extractData(res: Response) {
     let body = res.json()

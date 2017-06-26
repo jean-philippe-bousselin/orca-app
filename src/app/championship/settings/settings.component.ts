@@ -23,7 +23,20 @@ export class ChampionshipSettingsComponent implements OnInit {
 
   ngOnInit() {
     this.championship = this.championshipService.currentChampionship
-    this.sessionTypes = [this.createEmptyType()]
+    this.championshipService.getConfiguration(this.championship.id).subscribe(
+      configuration => this.loadConfig(configuration),
+      error => console.log(error)
+    )
+
+  }
+
+  loadConfig(configuration) {
+    if(configuration.sessionTypes.length > 0) {
+      this.sessionTypes = configuration.sessionTypes
+    } else {
+      this.sessionTypes = [this.createEmptyType()]
+    }
+    
     this.subclasses = []
     this.currentSubclass = ""
   }
