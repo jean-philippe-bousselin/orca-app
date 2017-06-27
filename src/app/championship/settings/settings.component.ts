@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 import { ChampionshipService } from '../championship.service'
 import { SessionType } from "../../sessions/sessionType.model"
@@ -15,19 +16,22 @@ export class ChampionshipSettingsComponent implements OnInit {
   private subclasses: string[]
   private currentSubclass: string
   private savingConfiguration: boolean = false
-  private championship : Championship
+  private championshipId : number
+  private sub: any
 
   constructor(
-    private championshipService: ChampionshipService
+    private championshipService: ChampionshipService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.championship = this.championshipService.currentChampionship
-    this.championshipService.getConfiguration(this.championship.id).subscribe(
-      configuration => this.loadConfig(configuration),
-      error => console.log(error)
-    )
-
+    this.sub = this.route.parent.params.subscribe(params => {
+      this.championshipId = +params['championshipId']
+      this.championshipService.getConfiguration(this.championshipId).subscribe(
+        configuration => this.loadConfig(configuration),
+        error => console.log(error)
+      )
+   })
   }
 
   loadConfig(configuration) {
@@ -36,13 +40,14 @@ export class ChampionshipSettingsComponent implements OnInit {
     } else {
       this.sessionTypes = [this.createEmptyType()]
     }
-    
+
     this.subclasses = []
     this.currentSubclass = ""
   }
 
   createEmptyType() : SessionType {
     let type = new SessionType()
+    type.id = 0
     type.name = "Default " + (this.sessionTypes? this.sessionTypes.length + 1 : "")
     type.points = [0,0,0,0,0,0,0,0,0,0]
     type.incidentsLimit = 0
@@ -67,7 +72,7 @@ export class ChampionshipSettingsComponent implements OnInit {
       sessionTypes: this.sessionTypes,
       subclasses: this.subclasses
     }
-    this.championshipService.configure(this.championship.id, configuration).subscribe(
+    this.championshipService.configure(this.championshipId, configuration).subscribe(
       response => this.configSuccess(response),
       error => this.configError(error)
     )
@@ -80,6 +85,10 @@ export class ChampionshipSettingsComponent implements OnInit {
   configError(error) {
     console.log(error)
     this.savingConfiguration = false
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
