@@ -1,9 +1,11 @@
-<div class="columns relative">
+<div class="relative">
 
-  <div class="column is-2" >
-    <session-menu [session]="session"></session-menu>
-  </div>
-  <div class="column is-10">
+
+  <session-menu [session]="session"></session-menu>
+
+
+  <div class="notification is-warning" *ngIf="!session?.results">
+    There are no results yet for this session.
 
     <file-upload
       [uploadUrl]="uploadUrl"
@@ -13,6 +15,13 @@
       ></file-upload>
 
   </div>
+
+  <div *ngIf="session?.results?.length > 0">
+    <session-results [session]="session"></session-results>
+  </div>
+
+
+
 
   <overlay-loader *ngIf="importingResults"></overlay-loader>
 

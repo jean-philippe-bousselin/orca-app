@@ -33,15 +33,17 @@ export class SessionComponent implements OnInit, OnDestroy {
   }
 
   uploadStarted() {
-    console.log("uplad started")
+    console.log("upload started")
     this.importingResults = true
   }
   uploadFinshed(results) {
-    console.log("uplad finished", results)
+
+    console.log("upload finished", results)
+    this.session.results = results.json()[0]
     this.importingResults = false
   }
   uploadError(error) {
-    console.log("uplad error", error)
+    console.log("upload error", error)
     this.importingResults = false
   }
 

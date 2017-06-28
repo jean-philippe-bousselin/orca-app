@@ -4,7 +4,8 @@ import { SessionService } from '../session.service'
 
 @Component({
   selector: 'session-menu',
-  templateUrl: './menu.html'
+  templateUrl: './menu.html',
+  styleUrls: ['./style.scss']
 })
 export class SessionMenuComponent implements OnInit {
 
