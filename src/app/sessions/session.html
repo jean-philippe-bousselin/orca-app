@@ -6,20 +6,18 @@
 
   <div class="notification is-warning" *ngIf="!session?.results">
     There are no results yet for this session.
-
-    <file-upload
-      [uploadUrl]="uploadUrl"
-      (onStart)="uploadStarted()"
-      (onFinish)="uploadFinshed($event)"
-      (onError)="uploadError($event)"
-      ></file-upload>
-
   </div>
 
   <div *ngIf="session?.results?.length > 0">
     <session-results [session]="session"></session-results>
   </div>
 
+  <file-upload
+    [uploadUrl]="uploadUrl"
+    (onStart)="uploadStarted()"
+    (onFinish)="uploadFinshed($event)"
+    (onError)="uploadError($event)"
+    ></file-upload>
 
 
 
