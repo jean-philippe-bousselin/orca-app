@@ -1,0 +1,4 @@
+<div *ngFor="let toast of getToasts()" class="notification is-info toast {{ toast.type }}">
+  <button class="delete" (click)="removeToast(toast.id)"></button>
+  {{ toast.message }}
+</div>
