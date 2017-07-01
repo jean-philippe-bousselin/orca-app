@@ -1,10 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
 import { ChampionshipModule } from './championship/championship.module'
 import { TracksModule } from './tracks/track.module'
 import { SessionModule } from "./sessions/session.module"
+import { SharedModule } from "./shared/shared.module"
 
 import {
   NgModule,
@@ -64,6 +65,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    SharedModule,
     ChampionshipModule,
     TracksModule,
     SessionModule,

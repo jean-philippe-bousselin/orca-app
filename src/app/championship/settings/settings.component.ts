@@ -5,6 +5,8 @@ import { ChampionshipService } from '../championship.service'
 import { SessionType } from "../../sessions/sessionType.model"
 import { Championship } from "../championship.model"
 
+import { ToastService } from "../../shared/toast/toast.service"
+
 @Component({
   selector: 'championship-settings',
   templateUrl: './template.html',
@@ -21,7 +23,8 @@ export class ChampionshipSettingsComponent implements OnInit {
 
   constructor(
     private championshipService: ChampionshipService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -79,12 +82,13 @@ export class ChampionshipSettingsComponent implements OnInit {
   }
 
   configSuccess(response) {
-    console.log(response)
     this.savingConfiguration = false
+    this.toastService.add("Configuration saved!", this.toastService.TYPE_SUCCESS)
   }
   configError(error) {
     console.log(error)
     this.savingConfiguration = false
+    this.toastService.add("An error has occured, we couldn't save the configuration.", this.toastService.TYPE_ERROR)
   }
 
   ngOnDestroy() {
