@@ -17,7 +17,7 @@ export class CreateChampionshipComponent {
 
   create(championship: Championship) {
     this.championshipService.create(championship).subscribe(
-      championship => this.router.navigate(['/championships/' + championship.id]),
+      championship => this.router.navigate(['/championships/' + championship.id + '/settings']),
       error => console.log('an error occured', error)
     )
   }
