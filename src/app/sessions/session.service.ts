@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Session } from './session.model'
+import { Result } from "./result.model"
 import { SessionType } from './sessionType.model'
 import { RCMService } from '../shared/RCMService.abstract'
 
@@ -24,6 +25,13 @@ export class SessionService extends RCMService {
       .get(this.apiUrl + '/sessions/' + id)
       .map(this.extractData)
   }
+
+  getResults(id: number): Observable<Result[]> {
+    return this.http
+      .get(this.apiUrl + '/sessions/' + id + '/results')
+      .map(this.extractData)
+  }
+
   getAll(championshipId: number): Observable<Session[]> {
     return this.http
       .get(this.apiUrl + "/championships/" + championshipId + '/sessions')

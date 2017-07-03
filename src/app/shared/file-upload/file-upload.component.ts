@@ -39,7 +39,6 @@ export class FileUploadComponent {
               response => this.uploadFinished(response),
               error => this.onError.emit(error)
             )
-
         }
     }
 

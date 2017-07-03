@@ -28,10 +28,18 @@ export class SessionComponent implements OnInit, OnDestroy {
       this.sessionId = +params['sessionId']
       this.uploadUrl = "http://localhost:9000/sessions/" + this.sessionId + "/results"
       this.sessionService.find(this.sessionId).subscribe(
-        session => this.session = session,
+        session => this.afterInit(session),
         error => console.log(error)
       )
    })
+  }
+
+  afterInit(session: Session) {
+    this.session = session
+    this.sessionService.getResults(this.sessionId).subscribe(
+      results => this.session.results = results,
+      error => console.log(error)
+    )
   }
 
   uploadStarted() {
