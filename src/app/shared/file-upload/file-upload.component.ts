@@ -36,10 +36,15 @@ export class FileUploadComponent {
             }
             this.onStart.emit()
             this.http.post(this.uploadUrl, formData).subscribe(
-              response => this.onFinish.emit(response),
+              response => this.uploadFinished(response),
               error => this.onError.emit(error)
             )
 
         }
+    }
+
+    uploadFinished(response) {
+      this.onFinish.emit(response)
+      this.inputEl.nativeElement.files.value = ""
     }
 }

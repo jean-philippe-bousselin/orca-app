@@ -17,6 +17,7 @@ export class Result {
   club: string
   points: number
   penaltyPoints: number
+  finalPoints: number
 
   constructor() {}
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 
 import { SessionService } from './session.service'
 import { Session } from './session.model'
+import { ToastService } from "../shared/toast/toast.service"
 
 @Component({
   selector: 'session',
@@ -18,7 +19,8 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   constructor(
     private sessionService: SessionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class SessionComponent implements OnInit, OnDestroy {
   }
   uploadError(error) {
     console.log("upload error", error)
+    this.toastService.add("An error has occured, results were not saved.", this.toastService.TYPE_ERROR)
     this.importingResults = false
   }
 
