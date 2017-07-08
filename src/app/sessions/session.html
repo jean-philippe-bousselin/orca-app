@@ -4,11 +4,11 @@
   <session-menu [session]="session"></session-menu>
 
 
-  <div class="notification is-warning" *ngIf="session?.results.length == 0">
+  <div class="notification is-warning" *ngIf="!sessionHasResults()">
     There are no results yet for this session.
   </div>
 
-  <div *ngIf="session?.results?.length > 0">
+  <div *ngIf="sessionHasResults()">
     <session-results [session]="session"></session-results>
   </div>
 

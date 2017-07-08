@@ -1,3 +1,5 @@
+import { Driver } from "../championship/driver.model"
+
 export class Result {
 
   id: number
@@ -5,7 +7,7 @@ export class Result {
   classPosition: number
   classCar: string
   carNumber: string
-  fullName: string
+  driver: Driver
   startPosition: number
   interval: string
   lapsLed: number

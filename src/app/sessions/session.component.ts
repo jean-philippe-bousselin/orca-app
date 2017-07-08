@@ -36,6 +36,7 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   afterInit(session: Session) {
     this.session = session
+    this.session.results = []
     this.sessionService.getResults(this.sessionId).subscribe(
       results => this.session.results = results,
       error => console.log(error)
@@ -56,6 +57,10 @@ export class SessionComponent implements OnInit, OnDestroy {
     console.log("upload error", error)
     this.toastService.add("An error has occured, results were not saved.", this.toastService.TYPE_ERROR)
     this.importingResults = false
+  }
+
+  sessionHasResults() {
+    return this.session && this.session.results.length > 0
   }
 
   ngOnDestroy() {
