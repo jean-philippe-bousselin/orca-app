@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Championship } from './championship.model'
+import { Standing } from "./standing.model"
 
 @Injectable()
 export class ChampionshipService {
@@ -31,6 +32,10 @@ export class ChampionshipService {
   getConfiguration(id: number): Observable<any> {
     return this.http.get(this.apiUrl + "/" + id + "/configuration").map(this.extractData)
   }
+  getStandings(id: number): Observable<Standing[]> {
+    return this.http.get(this.apiUrl + "/" + id + "/standings").map(this.extractData)
+  }
+
 
   private extractData(res: Response) {
     let body = res.json()
