@@ -55,6 +55,7 @@ export class ChampionshipSettingsComponent implements OnInit {
     type.points = [0,0,0,0,0,0,0,0,0,0]
     type.incidentsLimit = 0
     type.penaltyPoints = 0
+    type.bonusPoints = 0
     return type
   }
 
@@ -83,6 +84,7 @@ export class ChampionshipSettingsComponent implements OnInit {
 
   configSuccess(response) {
     this.savingConfiguration = false
+    this.sessionTypes = response.sessionTypes
     this.toastService.add("Configuration saved!", this.toastService.TYPE_SUCCESS)
   }
   configError(error) {

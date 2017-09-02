@@ -59,6 +59,14 @@
       </div>
 
       <div class="field">
+        <label class="label">Bonus points (0 incidents)</label>
+        <p class="control">
+          <input type="number" [(ngModel)]="sessionTypeValue.bonusPoints" 
+          #bonus="ngModel" ngControl="bonus" name="bonus" class="input" required value=""/>
+        </p>
+      </div>
+
+      <div class="field">
         <label class="label">Penalty points</label>
         <p class="control">
           <input type="number" [(ngModel)]="sessionTypeValue.penaltyPoints" #penalties="ngModel" ngControl="penalties"  name="penalties" class="input" required value=""/>

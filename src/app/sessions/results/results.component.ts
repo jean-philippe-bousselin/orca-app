@@ -18,7 +18,6 @@ export class SessionResultsComponent implements OnInit {
 
   ngOnInit() {
     this.results = this.session.results
-    console.log(this.results)
   }
 
 }

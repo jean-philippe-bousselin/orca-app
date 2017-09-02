@@ -5,6 +5,8 @@ export class SessionType {
   points: number[]
   incidentsLimit: number
   penaltyPoints: number
-  constructor() {}
+  bonusPoints: number
   
+  constructor() {}
+
 }

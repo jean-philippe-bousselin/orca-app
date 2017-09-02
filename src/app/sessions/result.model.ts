@@ -18,6 +18,7 @@ export class Result {
   incidents: number
   club: string
   points: number
+  bonusPoints: number
   penaltyPoints: number
   finalPoints: number
 
