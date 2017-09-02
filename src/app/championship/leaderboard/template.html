@@ -2,7 +2,11 @@
   <h1>{{category}} leaderboard</h1>
 </div>
 
-<table class="table is-narrow is-striped">
+<div class="" *ngIf="standings.length == 0">
+  No results yet.
+</div>
+
+<table class="table is-narrow is-striped" *ngIf="standings.length > 0">
   <thead>
     <tr>
       <th>Position</th>

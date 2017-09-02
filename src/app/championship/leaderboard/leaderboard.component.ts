@@ -22,6 +22,8 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
   ) {}
 
   ngOnInit() {
+    this.standings = []
+    
     this.sub = this.route.params.subscribe(params => {
       this.championshipId = +params['championshipId']
       this.category = params['category']
