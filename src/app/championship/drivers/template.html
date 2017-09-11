@@ -1,0 +1,27 @@
+<div class="field">
+  <div class="control">
+    <input class="input"
+    [(ngModel)]="searchString"
+    (ngModelChange)="filterDrivers()"
+    name="search"
+    ngControl="search"
+    #search="ngModel" type="text" placeholder="Search driver">
+  </div>
+</div>
+
+<table class="table is-narrow is-striped" *ngIf="drivers.length > 0">
+  <thead>
+    <tr>
+      <th>Driver</th>
+      <th>Category</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dr of filteredDrivers">
+      <td><span class="tag is-info">{{dr.category}}</span> {{dr.name}}</td>
+      <td>{{dr.category}}</td>
+      <td>{{dr.team.name}}</td>
+    </tr>
+  </tbody>
+</table>

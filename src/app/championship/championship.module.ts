@@ -13,7 +13,8 @@ import { ChampionshipMenuComponent } from './menu/menu.component.ts'
 import { ChampionshipService } from './championship.service'
 import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.component'
 import { ChampionshipSettingsComponent } from './settings/settings.component'
-
+import { DriversComponent } from './drivers/drivers.component'
+import { TeamsComponent } from './teams/teams.component'
 import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.component"
 
 @NgModule({
@@ -26,7 +27,9 @@ import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.com
     ChampionshipMenuComponent,
     ChampionshipLeaderboardComponent,
     ChampionshipSettingsComponent,
-    SessionTypeFormComponent
+    SessionTypeFormComponent,
+    DriversComponent,
+    TeamsComponent
   ],
   exports: [
     ChampionshipCardComponent,

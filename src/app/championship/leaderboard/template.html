@@ -18,7 +18,7 @@
   <tbody>
     <tr *ngFor="let st of standings">
       <td>{{st.position}}</td>
-      <td>{{st.driver.name}}</td>
+      <td><span class="tag is-info">{{st.driver.category}}</span> {{st.driver.name}}</td>
       <td>{{st.driver.team.name}}</td>
       <td>{{st.points}}</td>
     </tr>

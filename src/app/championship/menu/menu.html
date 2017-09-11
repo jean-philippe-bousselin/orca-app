@@ -36,7 +36,10 @@
     <li><a disabled>Edit</a></li>
     <li><a routerLink="/championships/{{championship.id}}/settings"
            routerLinkActive="is-active">Settings</a></li>
-    <li><a disabled>Drivers</a></li>
+    <li><a routerLink="/championships/{{championship.id}}/drivers"
+           routerLinkActive="is-active">Drivers</a></li>
+    <li><a routerLink="/championships/{{championship.id}}/teams"
+           routerLinkActive="is-active">Teams</a></li>
     <li><a disabled>Admins</a></li>
   </ul>
 </aside>

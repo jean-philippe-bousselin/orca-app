@@ -7,6 +7,8 @@ import 'rxjs/add/operator/map';
 
 import { Championship } from './championship.model'
 import { Standing } from "./standing.model"
+import { Driver } from './driver.model'
+import { Team } from './team.model'
 
 @Injectable()
 export class ChampionshipService {
@@ -35,7 +37,15 @@ export class ChampionshipService {
   getStandings(id: number): Observable<Standing[]> {
     return this.http.get(this.apiUrl + "/" + id + "/standings").map(this.extractData)
   }
-
+  getDrivers(id: number): Observable<Driver[]> {
+    return this.http.get(this.apiUrl + "/" + id + "/drivers").map(this.extractData)
+  }
+  getTeams(id: number): Observable<Team[]> {
+    return this.http.get(this.apiUrl + "/" + id + "/teams").map(this.extractData)
+  }
+  addTeam(id: number, teamName: string): Observable<Team> {
+    return this.http.post(this.apiUrl + "/" + id + "/teams", {name: teamName}).map(this.extractData)
+  }
 
   private extractData(res: Response) {
     let body = res.json()

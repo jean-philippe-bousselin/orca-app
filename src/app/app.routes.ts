@@ -8,6 +8,8 @@ import { CreateChampionshipComponent } from './championship/create/create-champi
 import { ChampionshipComponent } from './championship/championship.component'
 import { ChampionshipLeaderboardComponent } from './championship/leaderboard/leaderboard.component'
 import { ChampionshipSettingsComponent } from './championship/settings/settings.component'
+import { DriversComponent } from './championship/drivers/drivers.component'
+import { TeamsComponent } from './championship/teams/teams.component'
 
 import { TrackComponent } from './tracks/track.component'
 
@@ -27,7 +29,9 @@ export const ROUTES: Routes = [
       { path: 'leaderboard/:category', component: ChampionshipLeaderboardComponent },
       { path: 'sessions/add', component: CreateSessionComponent },
       { path: 'sessions/:sessionId', component: SessionComponent },
-      { path: 'sessions', component: SessionListComponent }
+      { path: 'sessions', component: SessionListComponent },
+      { path: 'drivers', component: DriversComponent },
+      { path: 'teams', component: TeamsComponent }
     ]
   },
 
