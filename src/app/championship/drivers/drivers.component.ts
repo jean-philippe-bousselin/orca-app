@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Championship } from '../championship.model'
 import { ChampionshipService } from '../championship.service'
 import { Driver } from '../driver.model'
+import { Team } from '../team.model'
 
 @Component({
   selector: 'drivers',
@@ -19,6 +20,10 @@ export class DriversComponent implements OnInit {
   private filteredDrivers: Driver[]
   private searchString: string
 
+  private teams: Team[]
+  private categories: string[] = [
+    'PRO', 'AM', 'ALL'
+  ]
   constructor(
     private championshipService: ChampionshipService,
     private route: ActivatedRoute
@@ -30,6 +35,7 @@ export class DriversComponent implements OnInit {
 
   ngOnInit() {
     this.drivers = []
+    this.teams = []
     this.filteredDrivers = []
     this.searchString = ""
     this.sub = this.route.params.subscribe(params => {
@@ -38,6 +44,10 @@ export class DriversComponent implements OnInit {
 
    this.championshipIdSub = this.route.parent.params.subscribe(params => {
      this.championshipId = +params['championshipId']
+     this.championshipService.getTeams(this.championshipId).subscribe(
+       teams => this.teams = teams,
+       error => console.log(error)
+     )
      this.championshipService.getDrivers(this.championshipId).subscribe(
        drivers => this.onSuccess(drivers),
        error => console.log(error)
@@ -48,6 +58,21 @@ export class DriversComponent implements OnInit {
   onSuccess(drivers: Driver[]) {
     this.drivers = drivers
     this.filteredDrivers = drivers
+  }
+
+  driverHasTeam(team: Team, driverTeam: Team) {
+    if(team && driverTeam) {
+      return team.id === driverTeam.id;
+    } else {
+      return false
+    }
+  }
+
+  updateDriver(driver: Driver) {
+    this.championshipService.updateDriver(this.championshipId, driver).subscribe(
+      driver => console.log(driver),
+      error => console.log(error)
+    )
   }
 
   ngOnDestroy() {

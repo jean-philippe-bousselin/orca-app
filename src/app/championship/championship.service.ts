@@ -46,6 +46,9 @@ export class ChampionshipService {
   addTeam(id: number, teamName: string): Observable<Team> {
     return this.http.post(this.apiUrl + "/" + id + "/teams", {name: teamName}).map(this.extractData)
   }
+  updateDriver(id: number, driver: Driver): Observable<Team> {
+    return this.http.put(this.apiUrl + "/" + id + "/drivers", driver).map(this.extractData)
+  }
 
   private extractData(res: Response) {
     let body = res.json()

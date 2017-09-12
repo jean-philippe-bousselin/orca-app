@@ -19,9 +19,24 @@
   </thead>
   <tbody>
     <tr *ngFor="let dr of filteredDrivers">
-      <td><span class="tag is-info">{{dr.category}}</span> {{dr.name}}</td>
-      <td>{{dr.category}}</td>
-      <td>{{dr.team.name}}</td>
+      <td>{{dr.name}}</td>
+      <td>
+        <div class="select">
+          <select [(ngModel)]="dr.category"
+                  (ngModelChange)="updateDriver(dr)">
+            <option *ngFor="let c of categories" [ngValue]="c">{{c}}</option>
+          </select>
+        </div>
+      </td>
+      <td>
+        <div class="select">
+          <select [compareWith]="driverHasTeam"
+                  [(ngModel)]="dr.team"
+                  (ngModelChange)="updateDriver(dr)">
+            <option *ngFor="let t of teams" [ngValue]="t">{{t.name}}</option>
+          </select>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
