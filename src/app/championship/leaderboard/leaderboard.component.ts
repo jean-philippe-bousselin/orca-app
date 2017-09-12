@@ -15,6 +15,7 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
   private category: string
   private championshipId: number
   private standings: Standing[]
+  private filteredStandings: Standing[]
 
   constructor(
     private championshipService: ChampionshipService,
@@ -23,19 +24,32 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
     this.standings = []
-    
+
     this.sub = this.route.params.subscribe(params => {
       this.championshipId = +params['championshipId']
       this.category = params['category']
+      this.filterStandings()
    })
 
    this.championshipIdSub = this.route.parent.params.subscribe(params => {
      this.championshipId = +params['championshipId']
      this.championshipService.getStandings(this.championshipId).subscribe(
-       standings => this.standings = standings,
+       standings => {
+         this.standings = standings
+         this.filterStandings()
+       },
        error => console.log(error)
      )
    })
+  }
+
+  private filterStandings() {
+    this.filteredStandings = this.standings.filter((standing) => {
+      if(this.category === 'all') {
+        return true
+      }
+      return standing.driver.category.toLowerCase() === this.category.toLowerCase()
+    })
   }
 
   ngOnDestroy() {

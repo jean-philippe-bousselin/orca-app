@@ -24,7 +24,7 @@ export const ROUTES: Routes = [
   { path: 'new-championship', component: CreateChampionshipComponent },
   { path: 'championships/:championshipId', component: ChampionshipComponent,
     children: [
-      { path: '', redirectTo: 'leaderboard/overall', pathMatch: 'full' },
+      { path: '', redirectTo: 'leaderboard/all', pathMatch: 'full' },
       { path: 'settings', component: ChampionshipSettingsComponent },
       { path: 'leaderboard/:category', component: ChampionshipLeaderboardComponent },
       { path: 'sessions/add', component: CreateSessionComponent },

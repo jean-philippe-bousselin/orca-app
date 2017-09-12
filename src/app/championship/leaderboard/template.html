@@ -1,5 +1,5 @@
 <div class="content">
-  <h1>{{category}} leaderboard</h1>
+  <h1>{{category|uppercase}} leaderboard</h1>
 </div>
 
 <div class="" *ngIf="standings.length == 0">
@@ -16,9 +16,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let st of standings">
-      <td>{{st.position}}</td>
-      <td><span class="tag is-info">{{st.driver.category}}</span> {{st.driver.name}}</td>
+    <tr *ngFor="let st of filteredStandings let i = index">
+      <td>{{i + 1}}</td>
+      <td><span class="tag"
+          [ngClass]="{'is-info': st.driver.category == 'AM', 'is-black': st.driver.category == 'ALL', 'is-primary': st.driver.category == 'PRO'}"
+          >{{st.driver.category}}</span> {{st.driver.name}}</td>
       <td>{{st.driver.team.name}}</td>
       <td>{{st.points}}</td>
     </tr>
