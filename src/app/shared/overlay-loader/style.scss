@@ -1,9 +1,0 @@
-@import '~bulma/bulma.sass';
-
-.fucking-loader-container  {
-  background:black; opacity: 0.5; font-size: 5rem;
-  .fucking-loader{
-    @include loader;
-    @include center(1em);
-  }
-}
