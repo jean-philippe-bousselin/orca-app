@@ -1,0 +1,42 @@
+<table class="table is-narrow is-striped">
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>#</th>
+      <th>Driver</th>
+      <th>Team</th>
+      <th>Start Position</th>
+      <th>Interval</th>
+      <th>Laps led</th>
+      <th>Average Lap</th>
+      <th>Fastest Lap</th>
+      <th>On Lap</th>
+      <th>Incidents</th>
+      <th>Total laps</th>
+      <th>Points</th>
+      <th>Bonus</th>
+      <th>Penalties</th>
+      <th>Final points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of results">
+      <td>{{result.position}}</td>
+      <td>{{result.carNumber}}</td>
+      <td>{{result.competitor.driver.name}}</td>
+      <td>{{result.competitor.team.name}}</td>
+      <td>{{result.startPosition}}</td>
+      <td>{{result.interval}}</td>
+      <td>{{result.lapsLed}}</td>
+      <td>{{result.averageLap}}</td>
+      <td>{{result.fastestLap}}</td>
+      <td>{{result.fastestLapNumber}}</td>
+      <td>{{result.incidents}}</td>
+      <td>{{result.totalLaps}}</td>
+      <td>{{result.points}}</td>
+      <td>{{result.bonusPoints}}</td>
+      <td>{{result.penaltyPoints}}</td>
+      <td>{{result.finalPoints}}</td>
+    </tr>
+  </tbody>
+</table>

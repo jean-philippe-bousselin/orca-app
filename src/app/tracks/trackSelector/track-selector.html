@@ -1,0 +1,8 @@
+<div class="select" [ngClass]="{'is-loading': loading}">
+
+  <select [(ngModel)]="selectedTrack" (change)="selectTrack(track)">
+    <option *ngIf="loading">Loading tracks...</option>
+    <option *ngFor="let track of tracks" [ngValue]="track">{{track.name}}</option>
+  </select>
+
+</div>

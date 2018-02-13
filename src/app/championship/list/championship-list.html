@@ -1,0 +1,8 @@
+<div class="championship-container is-narrow" *ngFor="let c of list">
+  <championship-card
+    [hideButtons]="false"
+    [championship]="c"
+  ></championship-card>
+</div>
+
+<overlay-loader *ngIf="isLoading"></overlay-loader>

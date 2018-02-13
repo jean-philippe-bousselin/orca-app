@@ -1,0 +1,16 @@
+<div class="columns">
+  <div class="column" *ngFor="let session of sessions">
+    <session-card
+      [session]="session"
+      [showButtons]="true"
+    ></session-card>
+  </div>
+</div>
+
+<article *ngIf="sessions?.length == 0" class="message is-warning">
+  <div class="message-body">
+    <strong>There is no session yet in this championship.</strong>
+    <a routerLink="add">Add a session</a>
+  </div>
+</article>
+ 

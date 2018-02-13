@@ -1,0 +1,12 @@
+<div class="content">
+  <h1>Setup a new Session</h1>
+</div>
+
+<div class="relative">
+  <session-form
+    [session]="session"
+    (onSend)="createSession($event)"
+    [championshipId]="championshipId"></session-form>
+
+  <overlay-loader *ngIf="loading"></overlay-loader>
+</div>
