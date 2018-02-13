@@ -2,31 +2,6 @@
 
 <div class="relative">
 
-  <div class="box settings-categories">
-
-    <h3 class="title is-3">Sub classes</h3>
-
-    <span *ngFor="let subclass of subclasses" class="tag is-info is-medium">
-      {{subclass}}
-      <button class="delete is-small"></button>
-    </span>
-
-    <div class="field has-addons">
-      <p class="control">
-        <input class="input" [(ngModel)]="currentSubclass" type="text" >
-      </p>
-      <p class="control">
-        <a class="button is-info" (click)="addSubclass()">
-          <span class="icon">
-            <i class="fa fa-plus"></i>
-          </span>
-        </a>
-      </p>
-    </div>
-
-  </div>
-
-
   <div class="box settings-session-types">
 
     <h3 class="title is-3">Session types</h3>

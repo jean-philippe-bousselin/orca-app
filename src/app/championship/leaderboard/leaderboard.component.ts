@@ -12,10 +12,11 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
 
   private sub: any
   private championshipIdSub: any
-  private category: string
   private championshipId: number
-  private standings: Standing[]
-  private filteredStandings: Standing[]
+  
+  category: string
+  standings: Standing[]
+  filteredStandings: Standing[]
 
   constructor(
     private championshipService: ChampionshipService,
@@ -33,7 +34,7 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
 
    this.championshipIdSub = this.route.parent.params.subscribe(params => {
      this.championshipId = +params['championshipId']
-     this.championshipService.getStandings(this.championshipId).subscribe(
+     this.championshipService.getDriverStandings(this.championshipId).subscribe(
        standings => {
          this.standings = standings
          this.filterStandings()
@@ -48,7 +49,7 @@ export class ChampionshipLeaderboardComponent implements OnInit, OnDestroy  {
       if(this.category === 'all') {
         return true
       }
-      return standing.driver.category.toLowerCase() === this.category.toLowerCase()
+      return standing.competitor.category.name.toLowerCase() === this.category.toLowerCase()
     })
   }
 

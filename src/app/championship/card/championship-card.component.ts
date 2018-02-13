@@ -7,7 +7,7 @@ import { Championship } from '../championship.model'
 })
 export class ChampionshipCardComponent {
 
-  private defaultThumb = "http://www.donedems.com/wp-content/uploads/2017/01/Online-Car-Racing.jpg"
+  private defaultThumb = "https://porschenewsroom.s3.amazonaws.com/porsche_newsroom/motorsport/porsche-motorsport-tracktest/b-_mg_2476jpg/d34af70c-56e0-4ee8-9f2f-e2dc9abc13ce_teaser_original_720x1_5.jpg"
 
   @Input() championship: Championship
   @Input() hideButtons: boolean = true

@@ -1,3 +1,4 @@
+import { ChampionshipService } from './../championship/championship.service';
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 
@@ -11,21 +12,31 @@ import { ToastService } from "../shared/toast/toast.service"
 })
 export class SessionComponent implements OnInit, OnDestroy {
 
-  private uploadUrl: string
-  private sessionId: number
-  private session: Session
   private sub: any
-  private importingResults: boolean = false
+  private champIdSub: any
+  private sessionId: number
+  private championshipId: number
+  
+  uploadUrl: string
+  session: Session
+  importingResults: boolean = false
 
   constructor(
     private sessionService: SessionService,
     private route: ActivatedRoute,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private championshipService: ChampionshipService
   ) {}
 
   ngOnInit() {
+    this.champIdSub = this.route.parent.params.subscribe(params => {
+      this.championshipId = +params['championshipId']
+      console.log(this.championshipId)
+    })
     this.sub = this.route.params.subscribe(params => {
       this.sessionId = +params['sessionId']
+
+      // @TODO move url into config
       this.uploadUrl = "http://localhost:9000/sessions/" + this.sessionId + "/results"
       this.sessionService.find(this.sessionId).subscribe(
         session => this.afterInit(session),
@@ -48,10 +59,10 @@ export class SessionComponent implements OnInit, OnDestroy {
     this.importingResults = true
   }
   uploadFinshed(results) {
-
     console.log("upload finished", results)
     this.session.results = results.json()[0]
     this.importingResults = false
+    this.championshipService.buildStandings(this.championshipId)
   }
   uploadError(error) {
     console.log("upload error", error)
@@ -65,6 +76,7 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.champIdSub.unsubscribe();
   }
 
 }

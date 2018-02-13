@@ -9,13 +9,14 @@ import { ChampionshipCardComponent } from './card/championship-card.component'
 import { ChampionshipListComponent } from './list/championship-list.component'
 import { ChampionshipFormComponent } from './form/championship-form.component'
 import { CreateChampionshipComponent } from './create/create-championship.component'
-import { ChampionshipMenuComponent } from './menu/menu.component.ts'
+import { ChampionshipMenuComponent } from './menu/menu.component'
 import { ChampionshipService } from './championship.service'
 import { ChampionshipLeaderboardComponent } from './leaderboard/leaderboard.component'
 import { ChampionshipSettingsComponent } from './settings/settings.component'
 import { DriversComponent } from './drivers/drivers.component'
 import { TeamsComponent } from './teams/teams.component'
-import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.component"
+import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.component";
+import { LeaderboardTeamsComponent } from './leaderboard/leaderboard-teams/leaderboard-teams.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SessionTypeFormComponent } from "./sessionTypeForm/sessionType-form.com
     ChampionshipSettingsComponent,
     SessionTypeFormComponent,
     DriversComponent,
-    TeamsComponent
+    TeamsComponent,
+    LeaderboardTeamsComponent
   ],
   exports: [
     ChampionshipCardComponent,

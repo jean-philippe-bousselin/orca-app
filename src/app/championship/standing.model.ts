@@ -1,10 +1,10 @@
-import { Driver } from "./driver.model"
+import { Competitor } from "./competitor.model"
 
 export class Standing {
 
   id: number
   position: number
-  driver: Driver
+  competitor: Competitor
   behindNext: number
   bonusPoints: number
   penaltyPoints: number

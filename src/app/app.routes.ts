@@ -1,7 +1,7 @@
+import { LeaderboardTeamsComponent } from './championship/leaderboard/leaderboard-teams/leaderboard-teams.component';
 import { Routes } from '@angular/router';
 import { NoContentComponent } from './no-content';
 
-import { DataResolver } from './app.resolver';
 import { HomeComponent } from './home';
 
 import { CreateChampionshipComponent } from './championship/create/create-championship.component'
@@ -26,6 +26,7 @@ export const ROUTES: Routes = [
     children: [
       { path: '', redirectTo: 'leaderboard/all', pathMatch: 'full' },
       { path: 'settings', component: ChampionshipSettingsComponent },
+      { path: 'leaderboard/teams', component: LeaderboardTeamsComponent },
       { path: 'leaderboard/:category', component: ChampionshipLeaderboardComponent },
       { path: 'sessions/add', component: CreateSessionComponent },
       { path: 'sessions/:sessionId', component: SessionComponent },

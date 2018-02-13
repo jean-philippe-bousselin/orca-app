@@ -12,12 +12,13 @@ export class ToastService {
 
     toasts: Toast[] = []
 
-    add(message: string, type: string = this.TYPE_INFO) {
+    add(message: string, type: string = this.TYPE_INFO) : number {
       let id = this.toasts.length + 1
       this.toasts.push(new Toast(id, message, type))
       setTimeout(() => {
         this.remove(id)
       }, this.TOAST_DURATION)
+      return id
     }
 
     remove(id: number) {

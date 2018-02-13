@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 
 import { Championship } from './championship.model'
 import { ChampionshipService } from './championship.service'
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'championship',
@@ -27,7 +28,7 @@ export class ChampionshipComponent implements OnInit, OnDestroy {
         championship => this.init(championship),
         error => console.log(error)
       )
-   })
+    })
   }
 
   init(championship: Championship) {

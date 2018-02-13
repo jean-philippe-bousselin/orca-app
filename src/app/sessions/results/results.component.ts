@@ -12,7 +12,7 @@ export class SessionResultsComponent implements OnInit {
 
   @Input() session: Session
 
-  private results: Result[]
+  results: Result[]
 
   constructor(private sessionService: SessionService) {}
 

@@ -19,9 +19,9 @@
     <tr *ngFor="let st of filteredStandings let i = index">
       <td>{{i + 1}}</td>
       <td><span class="tag"
-          [ngClass]="{'is-info': st.driver.category == 'AM', 'is-black': st.driver.category == 'ALL', 'is-primary': st.driver.category == 'PRO'}"
-          >{{st.driver.category}}</span> {{st.driver.name}}</td>
-      <td>{{st.driver.team.name}}</td>
+          [ngClass]="{'is-info': st.competitor.category.name == 'AM', 'is-black': st.competitor.category.name  == 'ALL', 'is-primary': st.competitor.category.name == 'PRO'}"
+          >{{st.competitor.category.name}}</span> {{st.competitor.driver.name}}</td>
+      <td>{{st.competitor.team.name}}</td>
       <td>{{st.points}}</td>
     </tr>
   </tbody>

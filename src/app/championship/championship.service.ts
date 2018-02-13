@@ -1,9 +1,8 @@
+import { TeamStanding } from './teamStanding.model';
+import { ToastService } from './../shared/toast/toast.service';
 import { Injectable }              from '@angular/core';
 import { Http, Response }          from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 
 import { Championship } from './championship.model'
 import { Standing } from "./standing.model"
@@ -17,7 +16,7 @@ export class ChampionshipService {
 
   currentChampionship: Championship
 
-  constructor (private http: Http) {}
+  constructor (private http: Http, private toastService: ToastService) {}
 
   find(id: number): Observable<Championship> {
     return this.http.get(this.apiUrl + '/' + id).map(this.extractData)
@@ -34,8 +33,11 @@ export class ChampionshipService {
   getConfiguration(id: number): Observable<any> {
     return this.http.get(this.apiUrl + "/" + id + "/configuration").map(this.extractData)
   }
-  getStandings(id: number): Observable<Standing[]> {
-    return this.http.get(this.apiUrl + "/" + id + "/standings").map(this.extractData)
+  getDriverStandings(id: number): Observable<Standing[]> {
+    return this.http.get(this.apiUrl + "/" + id + "/driver-standings").map(this.extractData)
+  }
+  getTeamStandings(id: number): Observable<TeamStanding[]> {
+    return this.http.get(this.apiUrl + "/" + id + "/team-standings").map(this.extractData)
   }
   getDrivers(id: number): Observable<Driver[]> {
     return this.http.get(this.apiUrl + "/" + id + "/drivers").map(this.extractData)
@@ -48,6 +50,14 @@ export class ChampionshipService {
   }
   updateDriver(id: number, driver: Driver): Observable<Team> {
     return this.http.put(this.apiUrl + "/" + id + "/drivers", driver).map(this.extractData)
+  }
+  buildStandings(id: number) {
+    const toastId = this.toastService.add("Rebuilding championships")
+    this.http.put(this.apiUrl + "/" + id + "/standings", {}).map(this.extractData)
+    .subscribe(result => {
+      this.toastService.remove(toastId)
+      this.toastService.add("Standings rebuilt!", this.toastService.TYPE_SUCCESS)
+    })
   }
 
   private extractData(res: Response) {

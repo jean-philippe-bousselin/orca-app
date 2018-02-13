@@ -1,5 +1,5 @@
 <div class="columns">
-  <div class="column is-3" *ngFor="let session of sessions">
+  <div class="column" *ngFor="let session of sessions">
     <session-card
       [session]="session"
       [showButtons]="true"
@@ -13,3 +13,4 @@
     <a routerLink="add">Add a session</a>
   </div>
 </article>
+ 

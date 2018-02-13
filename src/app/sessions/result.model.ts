@@ -1,4 +1,4 @@
-import { Driver } from "../championship/driver.model"
+import { Competitor } from './../championship/competitor.model';
 
 export class Result {
 
@@ -7,7 +7,7 @@ export class Result {
   classPosition: number
   classCar: string
   carNumber: string
-  driver: Driver
+  competitor: Competitor
   startPosition: number
   interval: string
   lapsLed: number
